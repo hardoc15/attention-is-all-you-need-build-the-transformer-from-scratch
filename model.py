@@ -31,11 +31,26 @@ def build_id_to_token_vocab(token_to_id):
         dict2[value] = key
     return dict2
 
-# Step 3 - encode_sentence_to_ids (not yet solved)
-# TODO: implement
+# Step 3 - encode_sentence_to_ids
+def encode_sentence_to_ids(sentence, token_to_id, unk_token='<unk>'):
+    # TODO: convert whitespace tokens of `sentence` to ids via `token_to_id`, using `unk_token`'s id for OOV
+    if len(sentence) == 0:
+        return []
+    list1 = []
+    for i in sentence.split(" "):
+        if i in token_to_id:
+            list1.append(token_to_id[i])
+        else:
+            list1.append(token_to_id[unk_token])
+    return list1
 
-# Step 4 - decode_ids_to_tokens (not yet solved)
-# TODO: implement
+# Step 4 - decode_ids_to_tokens
+def decode_ids_to_tokens(ids, id_to_token):
+    # TODO: map each id in ids to its token string via id_to_token and return the list
+    list1 = []
+    for word in ids:
+        list1.append(id_to_token[word])
+    return list1
 
 # Step 5 - pad_id_sequence (not yet solved)
 # TODO: implement
